@@ -1,0 +1,14 @@
+syntax = "proto3";
+package augusteum.mempool;
+
+option go_package = "github.com/creatachain/augusteum/proto/augusteum/mempool";
+
+message Txs {
+  repeated bytes txs = 1;
+}
+
+message Message {
+  oneof sum {
+    Txs txs = 1;
+  }
+}

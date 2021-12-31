@@ -1,0 +1,17 @@
+syntax = "proto3";
+package augusteum.crypto;
+
+option go_package = "github.com/creatachain/augusteum/proto/augusteum/crypto";
+
+import "gogoproto/gogo.proto";
+
+// PublicKey defines the keys available for use with Augusteum Validators
+message PublicKey {
+  option (gogoproto.compare) = true;
+  option (gogoproto.equal)   = true;
+
+  oneof sum {
+    bytes ed25519   = 1;
+    bytes secp256k1 = 2;
+  }
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package augusteum.types;
+
+option go_package = "github.com/creatachain/augusteum/proto/augusteum/types";
+
+import "gogoproto/gogo.proto";
+import "augusteum/types/types.proto";
+import "augusteum/types/evidence.proto";
+
+message Block {
+  Header                        header      = 1 [(gogoproto.nullable) = false];
+  Data                          data        = 2 [(gogoproto.nullable) = false];
+  augusteum.types.EvidenceList evidence    = 3 [(gogoproto.nullable) = false];
+  Commit                        last_commit = 4;
+}
